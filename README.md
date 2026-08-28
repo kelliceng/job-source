@@ -5,6 +5,7 @@ colorFrom: blue
 colorTo: green
 sdk: gradio
 sdk_version: 6.26.0
+python_version: '3.12'
 app_file: app_gradio.py
 pinned: false
 short_description: LinkedIn job posting to the company's own job listing page

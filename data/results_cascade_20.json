@@ -1,0 +1,393 @@
+[
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4451309149/",
+    "company_name": "Northrop Grumman",
+    "board_url": "https://www.northropgrumman.com/careers",
+    "provider": null,
+    "slug": null,
+    "job_count": null,
+    "confidence": 0.55,
+    "tier": 2,
+    "evidence": [
+      "browser_agent: reached a page listing multiple jobs at https://www.northropgrumman.com/careers"
+    ],
+    "trace": [
+      "LinkedIn -> 'Northrop Grumman' | 'Software Engineer Level 2 or 3 (AHT)'",
+      "TIER 0  slugs [('northropgrumman', 'strong'), ('northrop-grumman', 'strong'), ('northrop-grumman-corporation', 'strong'), ('northropgrummancorporation', 'strong'), ('northrop', 'weak')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website https://www.northropgrumman.com/",
+      "TIER 1    visited https://www.northropgrumman.com/",
+      "TIER 1    visited https://www.northropgrumman.com/careers",
+      "TIER 1  no ATS link in the raw HTML -- JavaScript site",
+      "TIER 2  browser agent (custom picker) from https://www.northropgrumman.com/",
+      "TIER 2    hop 0: click https://www.northropgrumman.com/careers (rule score 5.0)",
+      "TIER 2    hop 1: page lists jobs (21 similar links, 33 distinct titles)",
+      "TIER 2  listing page (unverified) https://www.northropgrumman.com/careers"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 21.27,
+    "job_id": "4451309149"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4446076196/",
+    "company_name": "Kaiser Permanente",
+    "board_url": "https://www.kaiserpermanentejobs.org/?kp_shortcut_referrer=kp.org/careers",
+    "provider": null,
+    "slug": null,
+    "job_count": null,
+    "confidence": 0.55,
+    "tier": 2,
+    "evidence": [
+      "browser_agent: reached a page listing multiple jobs at https://www.kaiserpermanentejobs.org/?kp_shortcut_referrer=kp.org/careers"
+    ],
+    "trace": [
+      "LinkedIn -> 'Kaiser Permanente' | 'Staff Nurse - Cath Lab'",
+      "TIER 0  slugs [('kaiserpermanente', 'strong'), ('kaiser-permanente', 'strong'), ('kaiser', 'weak')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website http://kp.org",
+      "TIER 1    visited https://healthy.kaiserpermanente.org/front-door",
+      "TIER 1    visited https://www.kaiserpermanentejobs.org/?kp_shortcut_referrer=kp.org/careers",
+      "TIER 1  no ATS link in the raw HTML -- JavaScript site",
+      "TIER 2  browser agent (custom picker) from http://kp.org",
+      "TIER 2    hop 0: click https://www.kaiserpermanente.org/careers (rule score 6.5)",
+      "TIER 2    hop 1: page lists jobs (19 similar links, 64 distinct titles)",
+      "TIER 2  listing page (unverified) https://www.kaiserpermanentejobs.org/?kp_shortcut_referrer=kp.org/careers"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 13.42,
+    "job_id": "4446076196"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4442297213/",
+    "company_name": "Expedia Group",
+    "board_url": "https://expedia.wd108.myworkdayjobs.com/en-US/search/introduceYourself",
+    "provider": "workday",
+    "slug": null,
+    "job_count": null,
+    "confidence": 0.55,
+    "tier": 2,
+    "evidence": [
+      "browser_agent: reached a page listing multiple jobs at https://expedia.wd108.myworkdayjobs.com/en-US/search/introduceYourself"
+    ],
+    "trace": [
+      "LinkedIn -> 'Expedia Group' | 'Software Development Engineer II - Payments'",
+      "TIER 0  slugs [('expedia', 'strong'), ('expediagroup', 'strong')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website https://careers.expediagroup.com/",
+      "TIER 1  no ATS link in the raw HTML -- JavaScript site",
+      "TIER 2  browser agent (custom picker) from https://careers.expediagroup.com/",
+      "TIER 2    hop 0: found workday board",
+      "TIER 2  listing page (unverified) https://expedia.wd108.myworkdayjobs.com/en-US/search/introduceYourself"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 3.13,
+    "job_id": "4442297213"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4444476726/",
+    "company_name": "State Street",
+    "board_url": "https://statestreet.wd1.myworkdayjobs.com/en-US/Global/introduceYourself",
+    "provider": "workday",
+    "slug": null,
+    "job_count": null,
+    "confidence": 0.55,
+    "tier": 1,
+    "evidence": [
+      "site_link: found on http://www.statestreet.com; no public API to verify against"
+    ],
+    "trace": [
+      "LinkedIn -> 'State Street' | 'Java Application Developer - AVP'",
+      "TIER 0  slugs [('statestreet', 'strong'), ('state-street', 'strong'), ('state', 'weak')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website http://www.statestreet.com",
+      "TIER 1    visited https://www.statestreet.com/us/en",
+      "TIER 1    visited https://careers.statestreet.com/global/en",
+      "TIER 1  found workday ref: https://statestreet.wd1.myworkdayjobs.com/en-US/Global/introduceYourself",
+      "TIER 1  UNVERIFIED workday https://statestreet.wd1.myworkdayjobs.com/en-US/Global/introduceYourself"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 2.61,
+    "job_id": "4444476726"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4397274754/",
+    "company_name": "Thomson Reuters",
+    "board_url": "https://thomsonreuters.wd5.myworkdayjobs.com/en-US/External_Career_Site",
+    "provider": "workday",
+    "slug": null,
+    "job_count": null,
+    "confidence": 0.55,
+    "tier": 1,
+    "evidence": [
+      "site_link: found on http://tr.com; no public API to verify against"
+    ],
+    "trace": [
+      "LinkedIn -> 'Thomson Reuters' | 'Senior Software Engineer, Full Stack'",
+      "TIER 0  slugs [('thomsonreuters', 'strong'), ('thomson-reuters', 'strong'), ('thomson', 'weak')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website http://tr.com",
+      "TIER 1    visited https://www.thomsonreuters.com/en",
+      "TIER 1    visited https://www.thomsonreuters.com/en/careers",
+      "TIER 1  found workday ref: https://thomsonreuters.wd5.myworkdayjobs.com/en-US/External_Career_Site",
+      "TIER 1  UNVERIFIED workday https://thomsonreuters.wd5.myworkdayjobs.com/en-US/External_Career_Site"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 1.99,
+    "job_id": "4397274754"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4432837265/",
+    "company_name": "Allianz Direct",
+    "board_url": "https://www.allianzdirect.de/karriere/",
+    "provider": null,
+    "slug": null,
+    "job_count": null,
+    "confidence": 0.55,
+    "tier": 2,
+    "evidence": [
+      "browser_agent: reached a page listing multiple jobs at https://www.allianzdirect.de/karriere/"
+    ],
+    "trace": [
+      "LinkedIn -> 'Allianz Direct' | 'Produktmanager Sachversicherung (m/f/x)'",
+      "TIER 0  slugs [('allianzdirect', 'strong'), ('allianz-direct', 'strong'), ('allianz', 'weak')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website http://www.allianzdirect.de",
+      "TIER 1    visited https://www.allianzdirect.de/",
+      "TIER 1  no ATS link in the raw HTML -- JavaScript site",
+      "TIER 2  browser agent (custom picker) from http://www.allianzdirect.de",
+      "TIER 2    hop 0: click https://www.allianzdirect.de/karriere/ ((rules gave up) Click on the Karriere (Careers) link to find current open job openings.)",
+      "TIER 2    hop 1: page lists jobs (7 similar links, 37 distinct titles)",
+      "TIER 2  listing page (unverified) https://www.allianzdirect.de/karriere/"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 28.4,
+    "job_id": "4432837265"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4453111603/",
+    "company_name": "Universal Music Group",
+    "board_url": "https://careers.smartrecruiters.com/universalmusicgroup",
+    "provider": "smartrecruiters",
+    "slug": "universalmusicgroup",
+    "job_count": 1,
+    "confidence": 0.8,
+    "tier": 0,
+    "evidence": [
+      "ats_api: SmartRecruiters returned 1 open jobs for 'universalmusicgroup'"
+    ],
+    "trace": [
+      "LinkedIn -> 'Universal Music Group' | 'Senior Data Analyst'",
+      "TIER 0  slugs [('universalmusic', 'strong'), ('universal-music', 'strong'), ('universalmusicgroup', 'strong'), ('universal', 'weak')]",
+      "TIER 0  HIT SmartRecruiters 'universalmusicgroup' (1 jobs)"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 1.19,
+    "job_id": "4453111603"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4458679907/",
+    "company_name": "CV-BRIDGE LTD",
+    "board_url": "https://cv-bridge.co.uk/",
+    "provider": null,
+    "slug": null,
+    "job_count": null,
+    "confidence": 0.55,
+    "tier": 2,
+    "evidence": [
+      "browser_agent: reached a page listing multiple jobs at https://cv-bridge.co.uk/"
+    ],
+    "trace": [
+      "LinkedIn -> 'CV-BRIDGE LTD' | 'Data Analyst'",
+      "TIER 0  slugs [('cvbridge', 'strong'), ('cv-bridge', 'strong'), ('cv-bridge-ltd', 'strong'), ('cvbridgeltd', 'strong'), ('cv', 'weak')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website https://www.cv-bridge.co.uk",
+      "TIER 1    visited https://cv-bridge.co.uk/",
+      "TIER 1    visited https://cv-bridge.co.uk/jobs",
+      "TIER 1    visited https://cv-bridge.co.uk/search-jobs/jobs",
+      "TIER 1    visited https://cv-bridge.co.uk/search-jobs/jobs?sectorid=8",
+      "TIER 1    visited https://cv-bridge.co.uk/search-jobs/jobs?sectorid=5",
+      "TIER 1  no ATS link in the raw HTML -- JavaScript site",
+      "TIER 2  browser agent (custom picker) from https://www.cv-bridge.co.uk",
+      "TIER 2    hop 0: page lists jobs (22 similar links, 22 distinct titles)",
+      "TIER 2  listing page (unverified) https://cv-bridge.co.uk/"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 16.86,
+    "job_id": "4458679907"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4417918921/",
+    "company_name": "suena energy",
+    "board_url": "https://suena-energy.jobs.personio.de",
+    "provider": "personio",
+    "slug": "suena-energy",
+    "job_count": null,
+    "confidence": 0.55,
+    "tier": 1,
+    "evidence": [
+      "site_link: found on https://suena.energy; no public API to verify against"
+    ],
+    "trace": [
+      "LinkedIn -> 'suena energy' | 'Product Manager (f/m/x) Energy Trading'",
+      "TIER 0  slugs [('suenaenergy', 'strong'), ('suena-energy', 'strong'), ('suena', 'weak')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website https://suena.energy",
+      "TIER 1    visited https://www.suena.energy/",
+      "TIER 1  found personio ref: suena-energy",
+      "TIER 1  UNVERIFIED personio https://suena-energy.jobs.personio.de"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 3.39,
+    "job_id": "4417918921"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4457712536/",
+    "company_name": "INTEGRIS Health",
+    "board_url": "https://integrishealth.org/careers",
+    "provider": null,
+    "slug": null,
+    "job_count": null,
+    "confidence": 0.55,
+    "tier": 2,
+    "evidence": [
+      "browser_agent: reached a page listing multiple jobs at https://integrishealth.org/careers"
+    ],
+    "trace": [
+      "LinkedIn -> 'INTEGRIS Health' | 'RN - PreOp/PostOp'",
+      "TIER 0  slugs [('integrishealth', 'strong'), ('integris-health', 'strong'), ('integris', 'weak')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website http://integrishealth.org",
+      "TIER 1  no ATS link in the raw HTML -- JavaScript site",
+      "TIER 2  browser agent (custom picker) from http://integrishealth.org",
+      "TIER 2    hop 0: click https://integrishealth.org/careers (rule score 5.0)",
+      "TIER 2    hop 1: page lists jobs (13 similar links, 130 distinct titles)",
+      "TIER 2  listing page (unverified) https://integrishealth.org/careers"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 27.91,
+    "job_id": "4457712536"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4324757874/",
+    "company_name": "Com\u00fan",
+    "board_url": "https://jobs.ashbyhq.com/comun",
+    "provider": "ashby",
+    "slug": "comun",
+    "job_count": 6,
+    "confidence": 0.98,
+    "tier": 0,
+    "evidence": [
+      "ats_api: Ashby returned 6 open jobs for 'comun'",
+      "title_match: our LinkedIn job appears on the board as 'Senior Backend Software Engineer (NYC)'"
+    ],
+    "trace": [
+      "LinkedIn -> 'Com\u00fan' | 'Senior Backend Software Engineer (NYC)'",
+      "TIER 0  slugs [('comn', 'strong'), ('com-n', 'strong'), ('comun-app', 'strong'), ('comunapp', 'strong'), ('comun', 'strong'), ('com', 'weak')]",
+      "TIER 0  HIT Ashby 'comun' (6 jobs) + title match"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 6.52,
+    "job_id": "4324757874"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4380296084/",
+    "company_name": "1KOMMA5\u00b0",
+    "board_url": "https://1komma5grad.jobs.personio.de",
+    "provider": "personio",
+    "slug": "1komma5grad",
+    "job_count": null,
+    "confidence": 0.55,
+    "tier": 1,
+    "evidence": [
+      "site_link: found on https://1komma5.com/de/?utm_source=social-media&utm_medium=linkedin-organic; no public API to verify against"
+    ],
+    "trace": [
+      "LinkedIn -> '1KOMMA5\u00b0' | '(Senior) Product Manager - Energy (m/f/d)'",
+      "TIER 0  slugs [('1komma5', 'strong'), ('1komma5grad', 'strong')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website https://1komma5.com/de/?utm_source=social-media&utm_medium=linkedin-organic",
+      "TIER 1    visited https://1komma5.com/de/?utm_source=social-media&utm_medium=linkedin-organic",
+      "TIER 1    visited https://1komma5.com/de/ueber-uns/jobs/",
+      "TIER 1  found personio ref: 1komma5grad",
+      "TIER 1  UNVERIFIED personio https://1komma5grad.jobs.personio.de"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 2.68,
+    "job_id": "4380296084"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4456070675/",
+    "company_name": "GM Financial",
+    "board_url": null,
+    "provider": null,
+    "slug": null,
+    "job_count": null,
+    "confidence": 0.0,
+    "tier": null,
+    "evidence": [],
+    "trace": [
+      "LinkedIn -> 'GM Financial' | 'Software Development Engineer II - C# and Azure Cloud'",
+      "TIER 0  slugs [('gmfinancial', 'strong'), ('gm-financial', 'strong'), ('gm', 'weak')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website http://www.gmfinancial.com",
+      "TIER 1    visited https://www.gmfinancial.com/en-us/home.html",
+      "TIER 1    visited https://careers.gmfinancial.com/en-us/careers-home.html",
+      "TIER 1    visited https://careers.gmfinancial.com/en-us/careers-home.html",
+      "TIER 1    visited https://careers.gmfinancial.com/en-us/culture.html",
+      "TIER 1    visited https://www.rightnotes.com/en-us/home.html",
+      "TIER 1  no ATS link in the raw HTML -- JavaScript site",
+      "TIER 2  browser agent (custom picker) from http://www.gmfinancial.com",
+      "TIER 2    hop 0: click https://www.gmfinancial.com/en-us/company/careers.html (rule score 6.5)",
+      "TIER 2    hop 1: give_up  ((rules gave up) No links are available on the current page to navigate to open job listings.)",
+      "TIER 2  no listing found"
+    ],
+    "error": "tier 2 found no job listing",
+    "ok": false,
+    "seconds": 28.32,
+    "job_id": "4456070675"
+  },
+  {
+    "linkedin_url": "https://www.linkedin.com/jobs/view/4417604969/",
+    "company_name": "CHI",
+    "board_url": "https://www.commonspirit.careers/",
+    "provider": null,
+    "slug": null,
+    "job_count": null,
+    "confidence": 0.55,
+    "tier": 2,
+    "evidence": [
+      "browser_agent: reached a page listing multiple jobs at https://www.commonspirit.careers/"
+    ],
+    "trace": [
+      "LinkedIn -> 'CHI' | 'Nurse Rehab'",
+      "TIER 0  slugs [('chi', 'strong'), ('catholic-health-initiatives', 'strong'), ('catholichealthinitiatives', 'strong')]",
+      "TIER 0  no trustworthy ATS account matched",
+      "TIER 1  website http://www.commonspirit.careers",
+      "TIER 1    visited https://www.commonspirit.careers/",
+      "TIER 1    visited https://providers.commonspirit.careers",
+      "TIER 1    visited https://www.commonspirit.careers/saved-jobs",
+      "TIER 1    visited https://www.commonspirit.careers/search-jobs?acm=ALL&alrpm=ALL&ascf=[%7B%22key%22:%22industry%22,%22value%22:%22CHI%22%7D]",
+      "TIER 1    visited https://www.commonspirit.careers/search-jobs?acm=ALL&alrpm=ALL&ascf=[%7B%22key%22:%22industry%22,%22value%22:%22Dignity+Health%22%7D]",
+      "TIER 1  no ATS link in the raw HTML -- JavaScript site",
+      "TIER 2  browser agent (custom picker) from http://www.commonspirit.careers",
+      "TIER 2    hop 0: page lists jobs (2 similar links, 54 distinct titles)",
+      "TIER 2  listing page (unverified) https://www.commonspirit.careers/"
+    ],
+    "error": null,
+    "ok": true,
+    "seconds": 6.82,
+    "job_id": "4417604969"
+  }
+]

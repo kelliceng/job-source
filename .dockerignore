@@ -1,0 +1,13 @@
+# Without this, the build context includes .venv (~500MB) and the Playwright
+# browser cache, making every deploy slow and the image huge.
+.venv/
+__pycache__/
+*.pyc
+.cache/
+.git/
+.env
+data/results*.json
+*.md
+!README.md
+.DS_Store
+.claude/

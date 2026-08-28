@@ -2,7 +2,13 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "jobsource",
+      "name": "gradio",
+      "runtimeExecutable": "./.venv/bin/python",
+      "runtimeArgs": ["app_gradio.py"],
+      "port": 7860
+    },
+    {
+      "name": "api",
       "runtimeExecutable": "./.venv/bin/uvicorn",
       "runtimeArgs": ["app.main:app", "--host", "127.0.0.1", "--port", "8010"],
       "port": 8010

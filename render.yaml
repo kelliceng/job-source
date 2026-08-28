@@ -1,0 +1,18 @@
+# Render blueprint. Push this repo to GitHub, then:
+#   Render dashboard -> New -> Blueprint -> pick the repo.
+services:
+  - type: web
+    name: job-source-agent
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    # Chromium needs more than the 512MB free tier reliably provides.
+    # Free still works for tiers 0-1; set USE_TIER2=0 there if it OOMs.
+    plan: starter
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false          # set in the dashboard; never committed
+      - key: BRAVE_API_KEY
+        sync: false
+      - key: USE_TIER2
+        value: "1"

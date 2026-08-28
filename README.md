@@ -1,3 +1,15 @@
+---
+title: Job Source Project
+emoji: 🎯
+colorFrom: blue
+colorTo: green
+sdk: gradio
+sdk_version: 6.26.0
+app_file: app_gradio.py
+pinned: false
+short_description: LinkedIn job posting to the company's own job listing page
+---
+
 # LinkedIn Job Source Agent
 
 Takes a LinkedIn job posting URL and returns the company's own job listing page.
@@ -29,7 +41,7 @@ get past the first two.
 | 0 | Guess the ATS account name from the company name, then ask each ATS API whether it exists | ~0.9s | free |
 | 1 | Follow the company's website to their careers page, look for an ATS link or embedded widget | ~3-6s | free |
 | 2 | Real browser (Playwright) + a picker chooses where to click — for JavaScript-rendered sites | ~8-20s | ~1¢ |
-| 3 | *(not built yet)* Web search — the only route to unguessable Workday tenants | ~2s | metered |
+| 3 | Web search (Brave API) — the only route to unguessable Workday tenants | ~2s | free tier |
 
 ## Tier 2: the browser agent
 
@@ -116,6 +128,55 @@ than either alone — while most pages never reach the model at all.
 Caveat worth stating plainly: n=14 is small, and a one-URL difference is within
 noise. The cascade result is the robust one because it doesn't depend on which
 picker is "better".
+
+## Tier 3: search
+
+Workday addresses look like `acme.wd3.myworkdayjobs.com/en-US/Careers`, where
+the tenant and the `wd3` shard are assigned by Workday. They can't be guessed,
+so Tier 0 structurally cannot reach them — but they are indexed.
+
+**Why an API and not the browser we already have.** Search engines block
+automated querying: DuckDuckGo answers `202`, Bing silently degrades results.
+Engineering around that is bot-detection evasion, which this project doesn't
+do — the same line we hold in Part 3. A search API is the supported interface
+for exactly this.
+
+Brave's free tier covers far more than this needs. Get a key at
+[brave.com/search/api](https://brave.com/search/api/) and set `BRAVE_API_KEY`.
+Without one, Tier 3 is inert — it reports itself as skipped rather than
+crashing or quietly falling back to scraping.
+
+Search is the noisiest input in the ladder, so its results are held to the
+same standard as everything else: an ATS hit is confirmed against that
+platform's public API before it's trusted, and anything unverifiable is capped
+at 0.45 confidence — below anything followed from the company's own website.
+
+## Deploying
+
+The brief asks for a live URL. Everything needed is in the repo.
+
+```bash
+# Render: push to GitHub, then dashboard -> New -> Blueprint -> pick this repo
+#   (render.yaml is already configured)
+
+# Fly.io:
+fly launch --no-deploy
+fly secrets set GEMINI_API_KEY=... BRAVE_API_KEY=...
+fly deploy
+```
+
+**Two things that will bite you:**
+
+1. **The Playwright image tag must match the `playwright` version in
+   `requirements.txt`** (both pinned to 1.62.0 here). A mismatch means the
+   browsers baked into the image don't match the driver, and every Tier 2
+   navigation fails at runtime — but only in production, never locally.
+2. **Chromium needs ~1GB.** Render's free tier (512MB) will OOM on Tier 2. Set
+   `USE_TIER2=0` to serve tiers 0/1/3 only, or use a paid instance. `fly.toml`
+   already requests 1GB.
+
+Keys are set as platform secrets (`sync: false` in `render.yaml`), never
+committed.
 
 ## Verification
 

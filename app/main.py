@@ -18,16 +18,24 @@ from jobsource.resolver import resolve  # noqa: E402
 
 app = FastAPI(title="Job Source Agent")
 
+# Tier 2 drives a real Chromium, which needs ~1GB. On a small instance set
+# USE_TIER2=0 to serve tiers 0/1/3 only rather than getting OOM-killed.
+USE_TIER2 = os.environ.get("USE_TIER2", "1") not in ("0", "false", "no")
+
+
+def _resolve(url: str):
+    return resolve(url, use_tier2=USE_TIER2)
+
 
 @app.get("/health")
 def health():
-    return {"ok": True}
+    return {"ok": True, "tier2": USE_TIER2}
 
 
 @app.get("/api/resolve")
 async def api_resolve(url: str):
     """Non-streaming JSON, for scripted testing."""
-    r = await asyncio.to_thread(resolve, url)
+    r = await asyncio.to_thread(_resolve, url)
     return r.to_dict()
 
 
@@ -53,7 +61,7 @@ async def api_stream(url: str):
                 self.trace = Tee()
             Resolution.__init__ = patched
             try:
-                return resolve(url)
+                return _resolve(url)
             finally:
                 Resolution.__init__ = orig
 

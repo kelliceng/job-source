@@ -5,6 +5,7 @@ from . import agent as agent_mod
 from . import ats as ats_mod
 from . import cache
 from . import linkedin as li
+from . import search as search_mod
 from . import site as site_mod
 from . import slugs as slug_mod
 from .models import Evidence, LinkedInJob, Resolution
@@ -100,9 +101,8 @@ def resolve(linkedin_url: str, verbose: bool = False, use_tier2: bool = True,
         return res
 
     if not website:
-        res.error = "no company website listed"
         say("TIER 1  LinkedIn lists no website for this company")
-        return res
+        return _tier3(res, job, None, say)
 
     say(f"TIER 1  website {website}")
     refs, visited = site_mod.crawl(website)
@@ -151,6 +151,58 @@ def resolve(linkedin_url: str, verbose: bool = False, use_tier2: bool = True,
     return res
 
 
+def _tier3(res, job, website, say) -> Resolution:
+    """Tier 3: search the web. The only route to unguessable Workday tenants."""
+    if not search_mod.available():
+        res.error = "needs tier 3 (no BRAVE_API_KEY set)"
+        say("TIER 3  skipped -- set BRAVE_API_KEY (free tier) to enable")
+        return res
+
+    say(f"TIER 3  searching for {job.company_name!r}")
+    hit = search_mod.find_board(job.company_name, website)
+    if not hit:
+        res.error = "exhausted all tiers"
+        say("TIER 3  nothing found")
+        return res
+
+    provider, slug, url = hit
+    res.board_url = url
+    res.provider = provider
+    res.slug = slug
+    res.tier = 3
+    say(f"TIER 3  found {provider or 'careers page'}: {url}")
+
+    # Same rule as every other tier: a search result is a claim; the ATS API
+    # answering is proof. Search results are the noisiest input we have, so
+    # this check matters most here.
+    if slug and provider in ats_mod.PROVIDERS_BY_ID:
+        confirm = ats_mod.probe_all_sync(
+            [slug], providers=[ats_mod.PROVIDERS_BY_ID[provider]])
+        if confirm:
+            hit_ = confirm[0]
+            matched = title_match(job.job_title, hit_.jobs)
+            res.board_url = hit_.board_url
+            res.job_count = hit_.count
+            res.confidence = score(True, matched, hit_.count)
+            res.evidence.append(Evidence("web_search", "found via search"))
+            res.evidence.append(Evidence(
+                "ats_api", f"{hit_.provider.label} confirmed '{slug}' "
+                           f"with {hit_.count} jobs"))
+            if matched:
+                res.evidence.append(Evidence("title_match", f"board lists {matched!r}"))
+            say(f"TIER 3  CONFIRMED {hit_.provider.label} ({hit_.count} jobs)")
+            return res
+
+    # Unverifiable (Workday, or a plain careers page). Search is our least
+    # trustworthy source, so score it below anything we followed from the
+    # company's own website.
+    res.confidence = 0.45
+    res.evidence.append(Evidence(
+        "web_search", f"top search result for {job.company_name!r}; "
+                      f"no public API to verify against"))
+    return res
+
+
 def _tier2(res, job, website, say, enabled, picker, browser) -> Resolution:
     """Tier 2: render the site in a real browser and let a picker navigate."""
     if not enabled:
@@ -174,9 +226,8 @@ def _tier2(res, job, website, say, enabled, picker, browser) -> Resolution:
         say(f"TIER 2    {s_}")
 
     if not out.board_url:
-        res.error = "tier 2 found no job listing"
         say("TIER 2  no listing found")
-        return res
+        return _tier3(res, job, website, say)
 
     res.board_url = out.board_url
     res.provider = out.ats_provider

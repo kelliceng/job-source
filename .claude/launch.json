@@ -2,16 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "gradio",
-      "runtimeExecutable": "./.venv/bin/python",
-      "runtimeArgs": ["app_gradio.py"],
-      "port": 7860
-    },
-    {
-      "name": "api",
-      "runtimeExecutable": "./.venv/bin/uvicorn",
-      "runtimeArgs": ["app.main:app", "--host", "127.0.0.1", "--port", "8010"],
-      "port": 8010
+      "name": "streamlit",
+      "runtimeExecutable": "./.venv/bin/streamlit",
+      "runtimeArgs": ["run", "streamlit_app.py", "--server.port", "8501", "--server.headless", "true"],
+      "port": 8501
     }
   ]
 }

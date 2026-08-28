@@ -88,10 +88,27 @@ class Browser:
         self._pw = None
         self._browser = None
 
+    # Free hosting tiers are memory-constrained, and Chromium is the thing
+    # that gets OOM-killed. These flags cut its footprint substantially with
+    # no effect on which links a page contains.
+    LEAN_ARGS = [
+        "--disable-dev-shm-usage",      # /dev/shm is tiny in containers
+        "--no-zygote",                  # skip the fork-server process
+        "--disable-gpu",
+        "--disable-extensions",
+        "--disable-background-networking",
+        "--disable-backgrounding-occluded-windows",
+        "--disable-renderer-backgrounding",
+        "--disable-features=TranslateUI,BackForwardCache",
+        "--no-sandbox",                 # required in most container runtimes
+        "--mute-audio",
+    ]
+
     def __enter__(self):
         from playwright.sync_api import sync_playwright
         self._pw = sync_playwright().start()
-        self._browser = self._pw.chromium.launch(headless=self.headless)
+        self._browser = self._pw.chromium.launch(
+            headless=self.headless, args=self.LEAN_ARGS)
         return self
 
     def __exit__(self, *exc):
